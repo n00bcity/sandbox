@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'sandbox',
+    podModulePrefix: 'sandbox/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
