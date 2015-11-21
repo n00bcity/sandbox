@@ -20,10 +20,10 @@ export default Ember.Component.extend({
 	actions: {
 		cancel() {
 			this.sendAction('cancelComponent');
-			return true;
 		},
 		save(friend) {
 			if (this.get('isValid')) {
+				console.log('here1');
 				this.sendAction('saveComponent', friend);
 			} else {
 				this.set('errorMessage', 'Fill out the forms');
