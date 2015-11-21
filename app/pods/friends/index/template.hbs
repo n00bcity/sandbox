@@ -1,0 +1,20 @@
+{{!H friends.index}}
+<p>Total: {{model.friends.length}}</p>
+{{link-to "Add friend" "friends.new" tagName="button"}}
+<table>
+  <thead>
+		<tr>
+			<th>Name</th>
+			<th></th>
+    </tr>
+  </thead>
+	
+	<tbody>
+    {{#each model.friends as |friend|}}
+			<tr>
+				<td>{{link-to friend.fullName "friends.show" friend}}</td>
+				<td><a href="#" {{action "delete" friend}}>Delete</a></td>
+			</tr>
+		{{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+<div>
+	<p>
+		{{friend.firstName}}
+		{{friend.lastName}}
+	</p>
+</div>
+<form {{action "save" friend on="submit"}}>
+	<p>
+		<label>First Name:
+			{{input value=friend.firstName}}
+		</label>
+	</p>
+	<p>
+		<label>Last Name:
+			{{input value=friend.lastName}}
+		</label>
+	</p>
+	<p>
+		<label>Email:
+			{{input value=friend.email}}
+		</label>
+	</p>
+	<p>
+		<label>Twitter:
+			{{input value=friend.twitter}}
+		</label>
+	</p>
+	<p>{{errorMessage}}</p>
+	<input type="submit" value="Save"/>
+	<button {{action "cancel"}}>Cancel</button>
+</form>
