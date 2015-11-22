@@ -10,11 +10,18 @@ export default Ember.Route.extend({
 	},
   actions: {
 	    save() {
-				var model = this.modelFor('articles/new');
-				model.save().then(() => { this.transitionTo('articles');
-		}); 
-	},
+	    	let model = this.modelFor('articles/new');
+	    	let valid = !Ember.isEmpty(model.get('description'))&&
+	    		!Ember.isEmpty(model.get('notes'));
+
+	    	if (valid) {
+	    		model.save().then(() => { this.transitionTo('articles'); });
+	    	} else {
+	    		this.set('errorMessage', 'Fill all fields');
+	    	}
+		},
 		cancel() {
+			console.log('asdf');
 			this.transitionTo('articles');
 		}
 	}

@@ -5,8 +5,9 @@
 	<p>Last Name: {{model.lastName}}</p>
 	<p>Email: {{model.email}}</p>
 	<p>Twitter: {{model.twitter}}</p>
+	{{link-to "Lend article" "articles.new" tagName="button"}}
 	{{link-to "Edit details" "friends.edit" model tagName="button"}}
-	{{link-to "Delete friend" "friends" tagName="button"}}
+	<button {{action "delete" model}}>Delete friend</button>
 	{{link-to "Back to friends list" "friends" tagName="button"}}
 </div>
 <div class="articles-container">
