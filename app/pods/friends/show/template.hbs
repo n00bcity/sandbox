@@ -1,10 +1,14 @@
 {{!H friends.show}}
 {{! this is passed friend from index table, and it equates to "model" here}}
-<ul>
-	<li>First Name: {{model.firstName}}</li>
-	<li>Last Name: {{model.lastName}}</li>
-	<li>Email: {{model.email}}</li>
-	<li>twitter: {{model.twitter}}</li>
-</ul>
-{{link-to "Edit details" "friends.edit" model tagName="button"}}
-{{link-to "Back to friends list" "friends" tagName="button"}}
+<div class="card friend-profile">
+	<p>First Name: {{model.firstName}}</p>
+	<p>Last Name: {{model.lastName}}</p>
+	<p>Email: {{model.email}}</p>
+	<p>Twitter: {{model.twitter}}</p>
+	{{link-to "Edit details" "friends.edit" model tagName="button"}}
+	{{link-to "Delete friend" "friends" tagName="button"}}
+	{{link-to "Back to friends list" "friends" tagName="button"}}
+</div>
+<div class="articles-container">
+	{{outlet}}
+</div>

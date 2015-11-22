@@ -13,6 +13,7 @@ Router.map(function() {
       path: ':friend_id'
     }, function() {
       this.route('articles', {resetNamespace: true}, function() {
+        this.route('new');
       });
     });
 
@@ -20,7 +21,7 @@ Router.map(function() {
       path: ':friend_id/edit'
     });
   });
-  this.route('articles');
+  //this.route('articles', function() {});
 });
 
 export default Router;
