@@ -8,13 +8,16 @@ export default Ember.Route.extend({
 			friends: this.store.findAll('friend')
 		});
 	},
-
 	actions: {
 		save(friend) {
 			friend.save();
 			this.transitionTo('friends.show', friend);
 		},
-		cancel() {
+		cancel(friend) {
+			// works for new and edit functions
+			if (friend.get('hasDirtyAttributes')) {
+				friend.rollbackAttributes();
+			}
 			this.transitionTo('friends');
 		},
 		delete(friend) {

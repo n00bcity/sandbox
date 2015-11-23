@@ -12,6 +12,26 @@ table {
 	border: 1px solid lightgrey;
 }
 
-table #articles {
+.ctr {
 	text-align: center;
+}
+
+.shyButton {
+	font-size: 0.75em;
+	text-align: center;
+}
+
+.friend-profile{
+	text-align: left;
+}
+
+.friend-profile img {
+	float:left;
+	margin:1em 2em 1em 1em;
+}
+
+.friend-profile-links li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
 }

@@ -8,6 +8,17 @@ export default Ember.Route.extend({
 			friend: this.modelFor('friends/show')
 		}); 
 	},
+
+	resetController: function(controller, isExisting) {
+		if (isExisting) {
+			var model = controller.get('model');
+			if (model.get('isNew')) {
+				//console.log('destroying: '+model.get('description'));
+				model.destroyRecord();
+			}
+		}
+	},
+
   actions: {
 	    save() {
 	    	let model = this.modelFor('articles/new');
@@ -21,7 +32,7 @@ export default Ember.Route.extend({
 	    	}
 		},
 		cancel() {
-			console.log('asdf');
+			//this.modelFor('articles/new').destroyRecord();
 			this.transitionTo('articles');
 		}
 	}

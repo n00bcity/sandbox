@@ -3,22 +3,21 @@
 	<thead>
 		<tr>
 			<th>Description</th>
+			<th>Notes</th>
 			<th>Borrowed since</th>
-			<th></th>
-			<th></th>
+			<th colspan="2" style="text-align:center;">Options status</th>
     </tr>
   </thead>
 	<tbody>
     {{#each model as |article|}}
-			<tr>
-				<td>{{article.description}}</td>
-				<td>{{article.createdAt}}</td>
-				<td></td>
-				<td></td>
-			</tr>
+    	{{article-row
+    		article=article
+    		save="save"
+    		delete="delete"
+    		}}
 		{{else}}
 			<tr>
-				<td>No articles lent out</td>
+				<td colspan="5">No articles lent out</td>
 			</tr>
 		{{/each}}
   </tbody>

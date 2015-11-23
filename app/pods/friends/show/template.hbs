@@ -5,11 +5,13 @@
 	<p>Last Name: {{model.lastName}}</p>
 	<p>Email: {{model.email}}</p>
 	<p>Twitter: {{model.twitter}}</p>
-	{{link-to "Lend article" "articles.new" tagName="button"}}
-	{{link-to "Edit details" "friends.edit" model tagName="button"}}
-	<button {{action "delete" model}}>Delete friend</button>
-	{{link-to "Back to friends list" "friends" tagName="button"}}
+	{{link-to "Back to friends list" "friends" tagName="button" class="stack"}}
+	{{link-to "Lend article" "articles.new" tagName="button" class="stack"}}
+	{{link-to "Edit details" "friends.edit" model tagName="button" class="stack"}}
+	<button class="error stack" {{action "delete" model}}>Delete friend</button>
 </div>
 <div class="articles-container">
 	{{outlet}}
 </div>
+
+{{cage-it}}

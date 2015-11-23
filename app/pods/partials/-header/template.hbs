@@ -1,3 +1,4 @@
+{{!H partials-header}}
 <nav>
   {{link-to "Borrowers" "index" class="brand"}}
   
@@ -9,6 +10,13 @@
 	<div class="menu">
 	{{link-to "Dashboard" "index" class="pseudo button icon-gauge"}}
 	{{link-to "Friends" "friends" class="pseudo button icon-users-1"}}
-	{{link-to "New Friend" "friends.new" class="pseudo button icon-user-add"}}
+	{{!link-to "New Friend" "friends.new" class="pseudo button icon-user-add"}}
+	{{modal-add-friend}}
   </div>
 </nav>
+
+{{!#if modalShowing}}
+  {{!#modal-dialog translucentOverlay=true close=(action 'toggleComposeModal')}}
+    {{!compose-modal dismiss=(action 'toggleComposeModal')}}
+  {{!/modal-dialog}}
+{{!/if}}

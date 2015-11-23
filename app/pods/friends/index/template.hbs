@@ -5,9 +5,8 @@
   <thead>
 		<tr>
 			<th>Name</th>
-			<th>Articles</th>
-			<th></th>
-			<th></th>
+			<th class="ctr">Articles</th>
+			<th colspan="2" class="ctr">Options</th>
     </tr>
   </thead>
 	
@@ -15,9 +14,9 @@
     {{#each model.friends as |friend|}}
 			<tr>
 				<td>{{link-to friend.fullName "articles" friend}}</td>
-				<td id="articles">{{friend.totalArticles}}</td>
-				<td>{{link-to "lend articles" "articles.new" friend}}</td>
-				<td><a href="#" {{action "delete" friend}}>delete</a></td>
+				<td class="ctr">{{friend.totalArticles}}</td>
+				<td class="ctr">{{link-to "Lend Articles" "articles.new" friend class="button pseudo shyButton"}}</td>
+				<td class="ctr"><button {{action "delete" friend}} data-tooltip="Remove this friend" class="pseudo shyButton tooltip-right">Delete</button></td>
 			</tr>
 		{{/each}}
   </tbody>

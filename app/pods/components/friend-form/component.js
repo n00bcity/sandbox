@@ -3,23 +3,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	isValid: Ember.computed(
-	  'friend.email',
-	  'friend.firstName',
-	  'friend.lastName',
-	  'friend.twitter',
-    {
-			get() {
-				return !Ember.isEmpty(this.get('friend.email')) &&
-					!Ember.isEmpty(this.get('friend.firstName')) &&
-					!Ember.isEmpty(this.get('friend.lastName')) &&
-					!Ember.isEmpty(this.get('friend.twitter'));
-			} 
-		}
-	),
+	hasEmail: Ember.computed.notEmpty('friend.email'),
+	hasFirstName: Ember.computed.notEmpty('friend.firstName'),
+	hasLastName: Ember.computed.notEmpty('friend.lastName'),
+	hasTwitter: Ember.computed.notEmpty('friend.twitter'),
+	isValid: Ember.computed.and('hasEmail','hasFirstName','hasLastName','hasTwitter'),
 	actions: {
-		cancel() {
-			this.sendAction('cancelComponent');
+		cancel(friend) {
+			this.sendAction('cancelComponent', friend);
 		},
 		save(friend) {
 			if (this.get('isValid')) {
