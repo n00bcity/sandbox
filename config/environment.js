@@ -6,10 +6,12 @@ module.exports = function(environment) {
     podModulePrefix: 'sandbox/pods',
     environment: environment,
     baseURL: '/',
+    apiURL: 'http://api.ember-cli-101.com/api/v2',
     locationType: 'auto',
     contentSecurityPolicy: {
         'style-src': "'self' 'unsafe-inline'",
-        'img-src': "'self'"
+        'img-src': "'self'",
+        'connect-src': "'self'"
     },
     EmberENV: {
       FEATURES: {
