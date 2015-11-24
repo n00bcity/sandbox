@@ -1,3 +1,8 @@
-<p>Lending new articles</p>
 <p>{{errorMessage}}</p>
-{{partial "partials/form"}}
+{{!partial "partials/form"}}
+<p>
+  {{paper-input placeholder="Item Description" type="text" value=model.description md-no-float=''}}
+	{{paper-input placeholder="Item Notes" type="text" value=model.notes md-no-float=''}}
+	{{#paper-button action="save" primary=true}}Save{{/paper-button}}
+	{{#paper-button action="cancel" primary=true}}Cancel{{/paper-button}}
+</p>
