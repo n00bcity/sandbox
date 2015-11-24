@@ -6,10 +6,10 @@
 </div>
 <form {{action "save" friend on="submit"}}>
 	<p>
-		{{paper-input md-no-float='' type='text' label="First Name" value=friend.firstName required=true required-errortext="Required..."}}
-		{{paper-input md-no-float='' type='text' label="Last Name" value=friend.lastName required=true required-errortext="Required..."}}
-		{{paper-input md-no-float='' type='text' label="Email" type="email" value=friend.email required=true required-errortext="Required..."}}
-		{{paper-input md-no-float='' type='text' label="Twitter" value=friend.twitter required=true required-errortext="Required..."}}
+		{{paper-input label="First Name" value=friend.firstName required=true required-errortext="Required..."}}
+		{{paper-input label="Last Name" value=friend.lastName required=true required-errortext="Required..."}}
+		{{paper-input label="Email" type="email" value=friend.email required=true required-errortext="Required..."}}
+		{{paper-input label="Twitter" value=friend.twitter required=true required-errortext="Required..."}}
 	</p>
 	<p>{{errorMessage}}</p>
 	<input type="submit" value="Save"/>

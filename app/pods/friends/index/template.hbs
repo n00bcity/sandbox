@@ -1,22 +1,12 @@
 {{!H friends.index}}
-{{#link-to "friends.new" tagName='div'}}
-	{{#paper-button}}{{paper-icon icon="person-add" primary="true" raised="true"}}
-		  Add Friend ({{model.friends.length}} total) 
-	{{/paper-button}}
-{{/link-to}}
-
-<!--div class="row">
-	<div class="fourth"></div>
-	<div class="half">{{search-friends items=model.friends}}</div>
-	<div class="fourth"></div>
-</div-->
-
+<p>Total: {{model.friends.length}}</p>
+{{link-to "Add friend" "friends.new" tagName="button"}}
 <table class="primary">
   <thead>
 		<tr>
 			<th>Name</th>
 			<th class="ctr">Articles</th>
-			<th colspan="2" class="ctr">Add articles / Delete</th>
+			<th colspan="2" class="ctr">Options</th>
     </tr>
   </thead>
 	
@@ -25,16 +15,8 @@
 			<tr>
 				<td>{{link-to friend.fullName "articles" friend}}</td>
 				<td class="ctr">{{friend.totalArticles}}</td>
-				<td class="ctr">
-					{{#link-to "articles.new" friend tagName='div'}}
-						{{#paper-button}}{{paper-icon icon="note-add"}}{{/paper-button}}
-					{{/link-to}}
-				</td>
-				<td>
-					{{#paper-button action="delete" param=friend}}
-						{{paper-icon icon="delete"}}
-					{{/paper-button}}
-				</td>
+				<td class="ctr">{{link-to "Lend Articles" "articles.new" friend class="button pseudo shyButton"}}</td>
+				<td class="ctr"><button {{action "delete" friend}} data-tooltip="Remove this friend" class="pseudo shyButton tooltip-right">Delete</button></td>
 			</tr>
 		{{/each}}
   </tbody>

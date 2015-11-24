@@ -20,14 +20,16 @@ export default Ember.Route.extend({
 	},
 
   actions: {
-    save() {
-    	let model = this.modelFor('articles/new');
-    	let valid = !Ember.isEmpty(model.get('description'))&&
-    		!Ember.isEmpty(model.get('notes'));
+	    save() {
+	    	let model = this.modelFor('articles/new');
+	    	let valid = !Ember.isEmpty(model.get('description'))&&
+	    		!Ember.isEmpty(model.get('notes'));
 
-    	if (valid) {
-    		model.save().then(() => { this.transitionTo('articles'); });
-    	}
+	    	if (valid) {
+	    		model.save().then(() => { this.transitionTo('articles'); });
+	    	} else {
+	    		this.set('errorMessage', 'Fill all fields');
+	    	}
 		},
 		cancel() {
 			//this.modelFor('articles/new').destroyRecord();
