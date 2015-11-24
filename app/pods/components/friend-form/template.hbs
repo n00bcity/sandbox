@@ -6,24 +6,10 @@
 </div>
 <form {{action "save" friend on="submit"}}>
 	<p>
-		<label>First Name:
-			{{input value=friend.firstName}}
-		</label>
-	</p>
-	<p>
-		<label>Last Name:
-			{{input value=friend.lastName}}
-		</label>
-	</p>
-	<p>
-		<label>Email:
-			{{input value=friend.email}}
-		</label>
-	</p>
-	<p>
-		<label>Twitter:
-			{{input value=friend.twitter}}
-		</label>
+		{{paper-input label="First Name" value=friend.firstName required=true required-errortext="Required..."}}
+		{{paper-input label="Last Name" value=friend.lastName required=true required-errortext="Required..."}}
+		{{paper-input label="Email" type="email" value=friend.email required=true required-errortext="Required..."}}
+		{{paper-input label="Twitter" value=friend.twitter required=true required-errortext="Required..."}}
 	</p>
 	<p>{{errorMessage}}</p>
 	<input type="submit" value="Save"/>

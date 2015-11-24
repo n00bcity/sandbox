@@ -9,8 +9,12 @@ module.exports = function(environment) {
     apiURL: 'http://api.ember-cli-101.com/api/v2',
     locationType: 'auto',
     contentSecurityPolicy: {
+        'default-src': "'none'",
+        'script-src': "'self'",
+        'font-src': "'self' fonts.gstatic.com",
+        'media-src': "'self'",
         'style-src': "'self' 'unsafe-inline'",
-        'img-src': "'self'",
+        'img-src': "'self' placecage.com/ fillmurray.com/",
         'connect-src': "'self'"
     },
     EmberENV: {

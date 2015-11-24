@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  height: 100,
-  width: 100, // default h&w
+  height: 300,
+  width: 300, // default h&w
 
 	//
   // The following computed property will give us the url for

@@ -1,13 +1,14 @@
 {{!H components.article-row}}
 <td>{{article.description}}</td>
 <td>{{article.notes}}</td>
-<td>{{!moment-format article.createdAt "LL"}}{{moment-from-now article.createdAt interval=1000}}</td>
-<td class="select">
-	{{#x-select value=article.state action="saveArticle"}}
-		{{#each articleStates as |state|}}
-			{{#x-option value=state}}{{state}}{{/x-option}}
-				{{#if article.isSaving}}<p>Saving...</p>{{/if}}
-		{{/each}}
-	{{/x-select}}
+<td>{{moment-from-now article.createdAt interval=1000}}</td>
+<td>
+	{{#paper-switch checked=booleanProp}}
+		{{#if booleanProp}}
+		  Borrowed
+		{{else}}
+		  Returned
+		{{/if}}
+	{{/paper-switch}}
 </td>
-<td><button class="error shyButton" {{action "delete" article}}>Delete</button></td>
+<td>{{#paper-button action="delete" param=article warn=true}}Delete{{/paper-button}}</td>

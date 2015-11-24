@@ -1,17 +1,40 @@
 {{!H friends.show}}
 {{! this is passed friend from index table, and it equates to "model" here}}
-<div class="card friend-profile">
-	<p>First Name: {{model.firstName}}</p>
-	<p>Last Name: {{model.lastName}}</p>
-	<p>Email: {{model.email}}</p>
-	<p>Twitter: {{model.twitter}}</p>
-	{{link-to "Back to friends list" "friends" tagName="button" class="stack"}}
-	{{link-to "Lend article" "articles.new" tagName="button" class="stack"}}
-	{{link-to "Edit details" "friends.edit" model tagName="button" class="stack"}}
-	<button class="error stack" {{action "delete" model}}>Delete friend</button>
-</div>
-<div class="articles-container">
-	{{outlet}}
-</div>
 
-<div style="border: 1px solid black;">{{rand-img}}</div>
+{{#paper-card class='pcard'}}
+	{{#paper-card-content}}
+		<div class="row">
+			{{!first col}}
+			<div class="randImg">
+			  {{rand-img}}
+			</div>
+			{{!second col}}
+			<div>
+				<h2>{{paper-icon icon="person" size="lg"}}  {{model.fullName}}</h2>
+				{{paper-divider}}
+				<p>{{paper-icon icon="email"}}  Email: {{model.email}}</p>
+				<p>{{paper-icon icon="chat"}}  Twitter: {{model.twitter}}</p>
+				{{paper-divider}}
+				<br>
+				{{#paper-button primary=true}}
+					{{link-to "Back to friends list" "friends" tagName="div"}}
+				{{/paper-button}}
+				<br>
+				{{#paper-button}}
+					{{link-to "Lend article" "articles.new" tagName="div"}}
+				{{/paper-button}}
+
+				{{#paper-button}}
+					{{link-to "Edit details" "friends.edit" model tagName="div"}}
+				{{/paper-button}}
+				<br>
+    		{{#paper-button action="delete" param=model warn=true}}
+    			Delete friend
+    		{{/paper-button}}				
+			</div>
+		</div>
+		<div class="articles-container">
+			{{outlet}}
+		</div>
+  {{/paper-card-content}}
+{{/paper-card}}
